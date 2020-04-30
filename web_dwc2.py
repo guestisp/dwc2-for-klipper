@@ -1065,11 +1065,12 @@ class web_dwc2:
 		#	file dwc1 - 'zzz/simplify3D41.gcode'
 		#	file dwc2 - '/gcodes/zzz/simplify3D41.gcode'
 
-		file = '/'.join(params['#original'].split(' ')[1:])
-		if '/gcodes/' not in file:	#	DWC 1 work arround
-			fullpath = self.sdpath + '/gcodes/' + params['#original'].split()[1]
+		file = '_'.join(params['#original'].split(' ')[1:]) # Replace whitespaces in filename with underscores
+
+		if '/gcodes/' not in file:      #       DWC 1 work arround
+				fullpath = self.sdpath + '/gcodes/' + file # use the "replaced" filename
 		else:
-			fullpath = self.sdpath + file
+				fullpath = self.sdpath + file
 
 		#	load a file to scurrent_file if its none
 		if not self.sdcard.current_file:
