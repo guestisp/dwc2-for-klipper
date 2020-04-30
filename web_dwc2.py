@@ -1444,7 +1444,7 @@ class web_dwc2:
 			'G1\sZ\d*\.\d*' ,					# 	Slic3r PE
 			'\sZ\\d+.\\d*' ,					# 	Cura
 			'\sZ\d+.\d{3}' ,					#	ideamaker
-			'G1\sZ\d*\.\d*'  					#	PrusaSlicer
+			'G1\sZ\d*\.\d*'  					#	PrusaSlicer || Slic3r++
 			]
 
 			#	heigth of the first layer
