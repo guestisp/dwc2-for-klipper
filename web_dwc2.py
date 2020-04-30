@@ -1450,7 +1450,7 @@ class web_dwc2:
 			#	heigth of the first layer
 		first_h = [ 
 			'first_layer_thickness_mm\s=\s\d+\.\d+' , 		#	kisslicers setting
-			'; first_layer_height =' ,						# 	Slic3r
+			'; first_layer_height =' ,						# 	Slic3r || Slic3r++
 			'\sZ\\d+.\\d*' ,								#	Simplify3d
 			'G1\sZ\d*\.\d*' ,								#	Slic3r PE
 			'\sZ\\d+.\\d\s' ,								#	Cura
@@ -1466,7 +1466,7 @@ class web_dwc2:
 			'; layer_height = \d.\d+' ,						#	Slic3r PE
 			';Layer height: \d.\d+' ,						# 	Cura
 			';Z:\d+.\d{3}',									#	ideamaker
-			'; layer_height = \d.\d+'						#	PrusaSlicer
+			'; layer_height = \d.\d+'						#	PrusaSlicer || Slic3r++
 			]
 		#	slicers estimate print time
 		time_e = [
@@ -1476,7 +1476,7 @@ class web_dwc2:
 			'\d+h?\s?\d+m\s\d+s' ,							#	Slic3r PE
 			';TIME:\\d+' ,									#	Cura
 			';Print Time:\s\d+\.?\d+',						#	ideamaker
-			'\d+h?\s?\d+m\s\d+s'							#	PrusaSlicer
+			'\d+h?\s?\d+m\s\d+s'							#	PrusaSlicer || Slic3r++
 			]
 		#	slicers filament usage
 		filament = [
@@ -1486,17 +1486,18 @@ class web_dwc2:
 			'.*filament\sused\s=\s.*mm' ,					#	Slic3r PE ; filament used =
 			';Filament used: \d*.\d+m'	,					#	Cura
 			';Material#1 Used:\s\d+\.?\d+',					#	ideamaker
-			'.*filament\sused\s.mm.\s=\s[0-9\.]+'					#	PrusaSlicer
+			'.*filament\sused\s.mm.\s=\s[0-9\.]+'			#	PrusaSlicer || Slic3r++
 			]
 		#	slicernames
 		slicers = [ 
 			'KISSlicer' ,
-			'^Slic3r$' ,
+			'^Slic3r$',
 			'Simplify3D\(R\).*' ,
 			'Slic3r Prusa Edition\s.*\so',
 			'Cura_SteamEngine.*' ,
 			'ideaMaker\s([0-9]*\..*,)',
-			'PrusaSlicer'
+			'PrusaSlicer',
+			'Slic3r\+\+'
 			]
 		#
 		meta = { "slicer": "Slicer is not implemented" }
